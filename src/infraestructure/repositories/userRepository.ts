@@ -1,7 +1,8 @@
-import { UserEntity } from "../../domain/entities/user.entity";
-import { UserModel } from "../../domain/models/user.model";
-import { UserRepositoryInterface } from "../../domain/repositories/userRepository.interface";
-import { MysqlService } from "../services/mysqlService";
+import { UserEntity } from "../../domain/entities";
+import { UserModel } from "../../domain/models";
+import { UserRepositoryInterface } from "../../domain/repositories";
+import { MysqlService } from "../services";
+
 
 export class UserRepository implements UserRepositoryInterface {
 

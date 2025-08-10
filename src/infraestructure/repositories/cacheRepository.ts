@@ -1,11 +1,13 @@
-import { CacheRepositoryInterface } from '../../domain/repositories/cacheRepository.interface';
-import DynamoDBService from '../services/dynamoService';
+import { CacheRepositoryInterface } from "../../domain/repositories";
+import DynamoDBService from "../services/dynamoService";
+
+
 export class CacheRepository implements CacheRepositoryInterface {
-    
-    constructor( private readonly dynamoService: DynamoDBService ) {
+
+    constructor(private readonly dynamoService: DynamoDBService) {
 
     }
-    findById(id: string): Promise< any> {
+    findById(id: string): Promise<any> {
         return this.dynamoService.getItem(id);
     }
     save(data, ttl: string): void {

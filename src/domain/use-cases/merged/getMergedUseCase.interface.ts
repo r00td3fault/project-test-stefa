@@ -1,4 +1,4 @@
-import { MergedDataModel } from "../../models/mergedData.model";
+import { MergedDataModel } from "../../models";
 
 export interface GetMergedDataUseCaseInterface {
     execute(): Promise<MergedDataModel[]>

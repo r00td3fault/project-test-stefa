@@ -1,6 +1,6 @@
-import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
-import { cacheRepository, externalService, mergedDataRepository } from '../../di';
-import { GetMergedDataUseCase } from '../../../domain/use-cases/merged/getMergedUseCase';
+import { APIGatewayProxyEvent, APIGatewayProxyHandler } from "aws-lambda";
+import { GetMergedDataUseCase } from "../../../domain/use-cases/merged/getMergedUseCase";
+import { cacheRepository, externalService, mergedDataRepository } from "../../di";
 
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {

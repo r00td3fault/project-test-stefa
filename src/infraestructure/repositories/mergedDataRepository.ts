@@ -1,10 +1,11 @@
-import { MergedDataModel } from "../../domain/models/mergedData.model";
-import { MergedDataRepositoryInterface } from "../../domain/repositories/merdedDataRepository.interface";
-import { MysqlService } from "../services/mysqlService";
+import { MergedDataModel } from "../../domain/models";
+import { MergedDataRepositoryInterface } from "../../domain/repositories";
+import { MysqlService } from "../services";
+
 
 export class MergedDataRepository implements MergedDataRepositoryInterface {
 
-    constructor( private readonly mysqlService : MysqlService) {
+    constructor(private readonly mysqlService: MysqlService) {
 
     }
     findAll(page: number): Promise<MergedDataModel[]> {

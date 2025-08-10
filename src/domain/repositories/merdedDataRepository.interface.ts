@@ -1,7 +1,7 @@
-import { MergedDataModel } from "../models/mergedData.model";
+import { MergedDataModel } from "../models";
 
 
 export interface MergedDataRepositoryInterface {
-    findAll( page: number ): Promise<MergedDataModel[]>;
-    save( data: MergedDataModel[]): void;
+    findAll(page: number): Promise<MergedDataModel[]>;
+    save(data: MergedDataModel[]): void;
 }

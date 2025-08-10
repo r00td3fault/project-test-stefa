@@ -1,5 +1,5 @@
 import UUIDv4Adapter from '../../infraestructure/adapters/uuidAdapter';
-import { EnrollmentInfoSimpleEntity, enrollmentProductsEnum, genderEnum } from '../entities/enrollmentSimple.entity';
+import { EnrollmentInfoSimpleEntity, enrollmentProductsEnum, genderEnum } from '../entities';
 
 const profiles = {
     1000: 'clasic',
@@ -17,10 +17,10 @@ export class EnrollmentInfoSimpleModel implements EnrollmentInfoSimpleEntity {
     interest: enrollmentProductsEnum;
     created: Date;
 
-    constructor( data: EnrollmentInfoSimpleEntity ) {
+    constructor(data: EnrollmentInfoSimpleEntity) {
         this.id = UUIDv4Adapter.getInstance().generate();
         this.name = data.name;
-        this.lastName  = data.lastName;
+        this.lastName = data.lastName;
         this.age = data.age;
         this.gender = data.gender;
         this.monthlyIncome = data.monthlyIncome;
@@ -38,10 +38,10 @@ export class EnrollmentInfoSimpleModel implements EnrollmentInfoSimpleEntity {
 
     getProfile() {
         const profile = this.monthlyIncome <= 1000 ? profiles[1000] :
-                        this.monthlyIncome > 1000 && this.monthlyIncome <= 3000 ? profiles[3000] : profiles[5000];
+            this.monthlyIncome > 1000 && this.monthlyIncome <= 3000 ? profiles[3000] : profiles[5000];
 
         return profile;
     }
-    
-    
+
+
 }

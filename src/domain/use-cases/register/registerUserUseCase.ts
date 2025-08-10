@@ -1,7 +1,7 @@
-import { BcryptAdapter } from "../../../infraestructure/adapters/bcryptAdapter";
-import { UserEntity } from "../../entities/user.entity";
-import { UserModel } from "../../models/user.model";
-import { UserRepositoryInterface } from "../../repositories/userRepository.interface";
+import { BcryptAdapter } from "../../../infraestructure/adapters";
+import { UserEntity } from "../../entities";
+import { UserModel } from "../../models";
+import { UserRepositoryInterface } from "../../repositories";
 import { RegisterUseCaseInterface } from "./registerUserCase.interface";
 
 

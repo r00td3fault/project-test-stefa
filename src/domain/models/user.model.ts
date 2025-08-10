@@ -1,5 +1,6 @@
 import UUIDv4Adapter from "../../infraestructure/adapters/uuidAdapter";
-import { UserEntity } from "../entities/user.entity";
+import { UserEntity } from "../entities";
+
 
 export class UserModel implements UserEntity {
     id: string;

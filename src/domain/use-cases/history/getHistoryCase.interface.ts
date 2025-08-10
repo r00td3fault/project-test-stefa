@@ -1,5 +1,6 @@
-import { MergedDataEntity } from "../../entities/mergedData.entity";
+import { MergedDataEntity } from "../../entities";
+
 
 export interface GetHistoryUseCaseInterface {
-    execute( page: number): Promise<MergedDataEntity[] | null >
+    execute(page: number): Promise<MergedDataEntity[] | null>
 }

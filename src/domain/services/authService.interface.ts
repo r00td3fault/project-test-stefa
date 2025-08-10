@@ -1,5 +1,6 @@
-import { UserEntity } from "../entities/user.entity"
-import { loginUserType } from "../types/user.type"
+import { UserEntity } from "../entities"
+import { loginUserType } from "../types"
+
 
 export interface AuthServiceInterface {
     register(data: UserEntity): Promise<void>

@@ -1,11 +1,8 @@
-import { cachedDataEntity } from "../../entities/cachedData.entity";
-import { CachedDataModel } from "../../models/cachedData.model";
-import { MergedDataModel } from "../../models/mergedData.model";
-import { CacheRepositoryInterface } from "../../repositories/cacheRepository.interface";
-import { MergedDataRepositoryInterface } from "../../repositories/merdedDataRepository.interface";
+import { cachedDataEntity } from "../../entities";
+import { CachedDataModel, MergedDataModel } from "../../models";
+import { CacheRepositoryInterface, MergedDataRepositoryInterface } from "../../repositories";
 import { ExternalServiceInterface } from "../../services/externalService.interface";
-import { resultSpeciesApi, speciesApiType } from "../../types/spiecesApi.type";
-import { resultStartWarsApi, startWarsApiType } from "../../types/startWarsApi.type";
+import { resultSpeciesApi, resultStartWarsApi, speciesApiType, startWarsApiType } from "../../types";
 import { GetMergedDataUseCaseInterface } from "./getMergedUseCase.interface";
 
 

@@ -1,7 +1,5 @@
-import { UserEntity } from "../../domain/entities/user.entity";
-import { EnrollmentInfoSimpleModel } from "../../domain/models/enrollmentSimple.model";
-import { MergedDataModel } from "../../domain/models/mergedData.model";
-import { UserModel } from "../../domain/models/user.model";
+import { UserEntity } from "../../domain/entities";
+import { EnrollmentInfoSimpleModel, MergedDataModel, UserModel } from "../../domain/models";
 import { db } from "../../utils/db";
 
 

@@ -1,4 +1,5 @@
-import { EnrollmentInfoSimpleModel } from "../models/enrollmentSimple.model";
+import { EnrollmentInfoSimpleModel } from "../models";
+
 
 
 export interface EnrollmentSimpleRepositoryInterface {

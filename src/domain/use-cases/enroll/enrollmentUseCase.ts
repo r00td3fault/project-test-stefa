@@ -1,6 +1,7 @@
-import { EnrollmentInfoSimpleModel } from "../../models/enrollmentSimple.model";
-import { EnrollmentSimpleRepositoryInterface } from "../../repositories/enrollmentSimpleRepository.interface";
+import { EnrollmentInfoSimpleModel } from "../../models";
+import { EnrollmentSimpleRepositoryInterface } from "../../repositories";
 import { enrollmentSimpleUseCaseInterface } from "./enrollmentUseCase.interface";
+
 
 
 

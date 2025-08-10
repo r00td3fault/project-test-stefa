@@ -1,9 +1,9 @@
-import { BcryptAdapter } from "../../../infraestructure/adapters/bcryptAdapter";
-import { JwtAdapter } from "../../../infraestructure/adapters/jwtAdapter";
-import { UserEntity } from "../../entities/user.entity";
-import { UserModel } from "../../models/user.model";
-import { UserRepositoryInterface } from "../../repositories/userRepository.interface";
-import { loginUserType } from "../../types/user.type";
+
+import { BcryptAdapter, JwtAdapter } from "../../../infraestructure/adapters";
+import { UserEntity } from "../../entities";
+import { UserModel } from "../../models";
+import { UserRepositoryInterface } from "../../repositories";
+import { loginUserType } from "../../types";
 import { LoginUseCaseInterface } from "./loginUserCase.interface";
 
 

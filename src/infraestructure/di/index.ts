@@ -1,10 +1,12 @@
-import { CacheRepository } from "../repositories/cacheRepository"
-import { MysqlService } from "../services/mysqlService"
-import { ExternalService } from "../services/externalServices"
-import { MergedDataRepository } from "../repositories/mergedDataRepository"
-import { EnrollmentRepository } from "../repositories/enrollmentRepository"
-import DynamoDBService from "../services/dynamoService"
-import { UserRepository } from "../repositories/userRepository"
+import {
+    CacheRepository,
+    EnrollmentRepository,
+    MergedDataRepository,
+    UserRepository
+} from "../repositories";
+import { ExternalService, MysqlService } from "../services";
+import DynamoDBService from "../services/dynamoService";
+
 
 const table = "startWarsCache";
 

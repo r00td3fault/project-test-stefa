@@ -1,12 +1,12 @@
-import { MergedDataEntity } from "../../entities/mergedData.entity";
-import { MergedDataRepositoryInterface } from "../../repositories/merdedDataRepository.interface";
+import { MergedDataEntity } from "../../entities";
+import { MergedDataRepositoryInterface } from "../../repositories";
 import { GetHistoryUseCaseInterface } from "./getHistoryCase.interface";
 
 
 
 export class GetHistoryUseCase implements GetHistoryUseCaseInterface {
 
-    constructor( 
+    constructor(
         private readonly mergedDataRepository: MergedDataRepositoryInterface,
     ) {
 

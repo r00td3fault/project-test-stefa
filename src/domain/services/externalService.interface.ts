@@ -1,8 +1,9 @@
-import { speciesApiType } from "../types/spiecesApi.type";
-import { startWarsApiType } from "../types/startWarsApi.type"
+import { speciesApiType, startWarsApiType } from "../types";
+
+
 
 
 export interface ExternalServiceInterface {
-    getStarts( ): Promise< startWarsApiType>;
-    getSpieces( ): Promise< speciesApiType>;
+    getStarts(): Promise<startWarsApiType>;
+    getSpieces(): Promise<speciesApiType>;
 }

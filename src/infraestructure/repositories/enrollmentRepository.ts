@@ -1,6 +1,6 @@
-import { EnrollmentInfoSimpleModel } from "../../domain/models/enrollmentSimple.model";
-import { EnrollmentSimpleRepositoryInterface } from "../../domain/repositories/enrollmentSimpleRepository.interface";
-import { MysqlService } from "../services/mysqlService";
+import { EnrollmentInfoSimpleModel } from "../../domain/models";
+import { EnrollmentSimpleRepositoryInterface } from "../../domain/repositories";
+import { MysqlService } from "../services";
 
 export class EnrollmentRepository implements EnrollmentSimpleRepositoryInterface {
 

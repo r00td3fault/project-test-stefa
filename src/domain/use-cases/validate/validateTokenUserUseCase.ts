@@ -1,7 +1,8 @@
 import { APIGatewayAuthorizerResult } from "aws-lambda";
-import { JwtAdapter } from "../../../infraestructure/adapters/jwtAdapter";
-import { validateTokenType } from "../../types/validateToken.type";
 import { validateTokenUseCaseInterface } from "./validateTokenUserCase.interface";
+import { validateTokenType } from "../../types";
+import { JwtAdapter } from "../../../infraestructure/adapters";
+
 
 
 

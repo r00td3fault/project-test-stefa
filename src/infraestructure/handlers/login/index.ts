@@ -2,9 +2,6 @@ import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
 import { LoginUserUseCase } from '../../../domain/use-cases/login/loginUserUseCase';
 import { userRepository } from '../../di';
 import { userSchema } from '../../../utils/validations/enrollmentBody.schema';
-import { getApiGatewayUrl, getDeploymentBucket, getOutput } from 'serverless-plugin-test-helper';
-
-
 
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {
@@ -15,8 +12,6 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
             body: JSON.stringify({ message: 'Request body is missing.' }),
         };
     }
-
-    console.log('url', getOutput('GatewayUrl'))
 
     const requestBody = JSON.parse(event.body);
 

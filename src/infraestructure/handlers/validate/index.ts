@@ -1,10 +1,6 @@
-import { APIGatewayAuthorizerResult, APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayRequestAuthorizerEvent, APIGatewayTokenAuthorizerEvent } from 'aws-lambda';
-import { LoginUserUseCase } from '../../../domain/use-cases/login/loginUserUseCase';
-import { userRepository } from '../../di';
-import { userSchema } from '../../../utils/validations/enrollmentBody.schema';
-import { ValidateTokenUserUseCase } from '../../../domain/use-cases/validate/validateTokenUserUseCase';
-import { validateTokenType } from '../../../domain/types/validateToken.type';
-
+import { APIGatewayAuthorizerResult } from "aws-lambda";
+import { validateTokenType } from "../../../domain/types";
+import { ValidateTokenUserUseCase } from "../../../domain/use-cases/validate/validateTokenUserUseCase";
 
 
 export const handler = async (event): Promise<APIGatewayAuthorizerResult> => {

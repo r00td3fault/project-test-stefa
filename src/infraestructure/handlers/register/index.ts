@@ -1,7 +1,7 @@
-import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda';
-import { userSchema } from '../../../utils/validations/enrollmentBody.schema';
-import { RegisterUserUseCase } from '../../../domain/use-cases/register/registerUserUseCase';
-import { userRepository } from '../../di';
+import { APIGatewayProxyEvent, APIGatewayProxyHandler } from "aws-lambda";
+import { userSchema } from "../../../utils/validations/enrollmentBody.schema";
+import { RegisterUserUseCase } from "../../../domain/use-cases/register/registerUserUseCase";
+import { userRepository } from "../../di";
 
 
 

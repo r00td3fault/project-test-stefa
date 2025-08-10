@@ -1,5 +1,6 @@
-import { EnrollmentInfoSimpleModel } from "../../models/enrollmentSimple.model";
+import { EnrollmentInfoSimpleModel } from "../../models";
+
 
 export interface enrollmentSimpleUseCaseInterface {
-    execute( data: EnrollmentInfoSimpleModel): Promise<void>
+    execute(data: EnrollmentInfoSimpleModel): Promise<void>
 }
