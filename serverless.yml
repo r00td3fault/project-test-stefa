@@ -1,0 +1,99 @@
+useDotenv: true
+service: rimac-project
+frameworkVersion: '3'
+
+custom:
+  esbuild:
+    config: './config/serverless-esbuild-config.js'
+  serverless-offline:
+    ignoreJWTSignature: true
+  autoswagger:
+    #title: 'string'
+    #apiType: 'httpApi'
+    #generateSwaggerOnDeploy: true
+    #typefiles: ['./src/types/typefile1.d.ts', './src/subfolder/helper.d.ts']
+    swaggerFiles: ['./doc/openapi.json']
+    # swaggerPath: 'string'
+    # apiKeyHeaders: ['Authorization', 'anyOtherName']
+    # useStage: true | false
+    # basePath: '/string'
+    # host: 'http://some-host'
+    #schemes: ['http', 'https', 'ws', 'wss']
+    #excludeStages: ['production']
+    #lambdaAuthorizer: ${self:custom.myAuthorizer}
+    #useRedirectUI: true | false
+  
+  # dynamodb:
+  #   stages:
+  #     - dev # Run DynamoDB Local only for the 'dev' stage
+  #   start:
+  #     port: 8000 # Default DynamoDB Local port
+  #     inMemory: true,
+  #     migrate: true # Automatically create tables from serverless config
+  #     seed: true # Seed data after migration (if configured)
+  #     convertEmptyValues: true
+    # setup: 
+    #   download_url: 'http://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz'
+    #   install_path: "bin"
+    #   jar: "DynamoDBLocal.jar"
+
+
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  tracing:
+    lambda: true # Enables X-Ray tracing for Lambda functions
+    apiGateway: true # Enables X-Ray tracing for API Gateway
+  httpApi:
+    cors: true
+    authorizers:
+      validate:
+        type: request
+        functionName: validate
+  environment:
+    NODE_TLS_REJECT_UNAUTHORIZED: ${env:NODE_TLS_REJECT_UNAUTHORIZED}
+    MYSQL_HOST: ${env:DB_HOST}
+    MYSQL_PORT: ${env:DB_PORT}
+    DB_NAME: ${env:DB_NAME}
+    DB_USERNAME: ${env:DB_USERNAME}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_HOST: ${env:DB_HOST}
+
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+            - dynamodb:Query
+            - dynamodb:Scan
+          Resource: ${env:DYNAMO_ARN}
+        - Effect: "Allow" # xray permissions (required)
+          Action:
+            - "xray:PutTraceSegments"
+            - "xray:PutTelemetryRecords"
+          Resource:
+            - "*"
+
+  
+
+plugins:
+  - serverless-offline
+  - serverless-esbuild
+  - serverless-auto-swagger
+  - serverless-plugin-test-helper
+  - serverless-plugin-tracing
+
+
+functions:
+  - ${file(resources/functions/all.yml)}
+
+# resources:
+#   - ${file(resources/resources.yml):Outputs}
+
+

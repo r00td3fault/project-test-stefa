@@ -1,0 +1,12 @@
+# ---
+# Outputs:
+#     GatewayUrl: # This is the key that will be used in the generated outputs file
+#       Description: This is a helper for functional tests
+#       Value: !Join
+#         - ''
+#         - - 'https://'
+#           - !Ref ApiGatewayRestApi
+#           - '.execute-api.'
+#           - ${opt:region, self:provider.region}
+#           - '.amazonaws.com/'
+#           - ${opt:stage, self:provider.stage}

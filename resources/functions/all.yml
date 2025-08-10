@@ -1,0 +1,69 @@
+register:
+    handler: src/infraestructure/handlers/register/index.handler
+    memorySize: 128 # optional, in MB, default is 1024
+    description: Register user
+    tracing: false
+    timeout: 15
+    events:
+      - httpApi:
+          path: /auth/register
+          method: POST
+        
+login:
+    handler: src/infraestructure/handlers/login/index.handler
+    memorySize: 128 # optional, in MB, default is 1024
+    description: Login user
+    tracing: false
+    timeout: 15
+    events:
+      - httpApi:
+          path: /auth/login
+          method: POST
+
+validate:
+    handler: src/infraestructure/handlers/validate/index.handler
+    memorySize: 128 # optional, in MB, default is 1024
+    description: Validate token
+    tracing: false
+    timeout: 15
+    events:
+      - httpApi:
+          path: /auth/validate
+          method: GET
+
+fusionados:
+    handler: src/infraestructure/handlers/merged/index.handler
+    memorySize: 256 # optional, in MB, default is 1024
+    description: Initial function
+    tracing: false
+    timeout: 60
+    events:
+      - httpApi:
+          path: /fusionados
+          method: GET
+          authorizer: 
+            name: validate
+
+almacenar:
+    handler: src/infraestructure/handlers/enroll/index.handler
+    memorySize: 128 # optional, in MB, default is 1024
+    description: Initial function
+    tracing: false
+    timeout: 15
+    events:
+      - httpApi:
+          path: /almacenar
+          method: POST
+          authorizer: 
+            name: validate
+
+historial:
+    handler: src/infraestructure/handlers/history/index.handler
+    memorySize: 256 # optional, in MB, default is 1024
+    description: Initial function
+    tracing: false
+    timeout: 15
+    events:
+      - httpApi:
+          path: /historial
+          method: GET

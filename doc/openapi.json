@@ -1,0 +1,210 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Project evaluation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/swagger"
+        }
+    ],
+    "paths": {
+        "/almacenar": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "Createan enrollment request",
+                "description": "Create an enrollment with user data and interest",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateEnrollmentRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "409": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Enrollment Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateOrderOutput"
+                                }
+                            }
+                        }
+                    },
+                    "501": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InternalServerErrorOutput"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateOrderOutput": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 20,
+                        "minLength": 1,
+                        "title": "Name",
+                        "description": "Customer name"
+                    },
+                    "item_count": {
+                        "type": "integer",
+                        "title": "Item Count",
+                        "description": "Amount of items in order"
+                    },
+                    "id": {
+                        "type": "string",
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "title": "Id",
+                        "description": "Order ID as UUID"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "item_count",
+                    "id"
+                ],
+                "title": "CreateOrderOutput"
+            },
+            "CreateEnrollmentRequest": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Customer Name",
+                        "description": "Customer name"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "title": "Customer last name",
+                        "description": "Customer last name"
+                    },
+                    "age": {
+                        "type": "number",
+                        "title": "Customer age",
+                        "description": "Customer age"
+                    },
+                    "gender": {
+                        "type": "string",
+                        "title": "Customer gender",
+                        "description": "Customer gender  MALE, FEMALE, OTHERS"
+                    },
+                    "monthlyIncome": {
+                        "type": "integer",
+                        "title": "Customer monthly income",
+                        "description": "Customer monthly income to get profile"
+                    },
+                    "interest": {
+                        "type": "string",
+                        "title": "Customer product interest",
+                        "description": "is the product that de customer want to buy"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "lastName",
+                    "age",
+                    "gender",
+                    "monthlyIncome",
+                    "interest"
+                ],
+                "title": "CreateEnrollmentRequest"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "InternalServerErrorOutput": {
+                "properties": {
+                    "error": {
+                        "type": "string",
+                        "title": "Error",
+                        "description": "Error description",
+                        "default": "internal server error"
+                    }
+                },
+                "type": "object",
+                "title": "InternalServerErrorOutput"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            },
+            "ResponseValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "ResponseValidationError"
+            }
+        }
+    }
+}
