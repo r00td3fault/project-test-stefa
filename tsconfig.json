@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "outDir": ".esbuild",
+    "moduleResolution": "node",
+    "lib": [
+      "es2015"
+    ],
+    "rootDir": "./",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "types": [
+      "jest"
+    ],
+    "esModuleInterop": true,
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
