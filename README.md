@@ -7,6 +7,8 @@ Proyecto de prueba serverles + typescritp + node
 - Docker
 - serverless3.40
 - typescript
+- DynamoDb
+- mysql
 
 
 ## Endpoints
@@ -16,6 +18,7 @@ Proyecto de prueba serverles + typescritp + node
 - POST /auth/register
 - POST /auth/login
 - GET /auth/validate 
+- GET /swagger  
 
 ## Comandos
 ```bash
