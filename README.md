@@ -18,7 +18,31 @@ Proyecto de prueba serverles + typescritp + node
 - POST /auth/register
 - POST /auth/login
 - GET /auth/validate 
-- GET /swagger  
+- GET /swagger
+
+## Modelado del sistema
+Se implementó una arquitectura limpia para desacoplar la logica de negocio de su implementacion
+
+### entidades
+![Entidades](/assets/images/enttities.PNG)
+
+### Basic Endpoints
+![Basic Endpoints](/assets/images/principalEps.PNG)
+
+### Repositories 
+![Repositories](/assets/images/reposiories.PNG)
+
+### Services
+![Services](/assets/images/servicies.PNG)
+
+### Casos de uso
+![Casos de uso](/assets/images/getmergedUsecase.PNG)
+
+### Protected
+![Protegidos](/assets/images/protected.PNG)
+
+### User
+![User](/assets/images/aut.PNG)
 
 ## Comandos
 ```bash
